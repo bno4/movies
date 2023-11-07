@@ -1,0 +1,50 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 20px;
+  background: black;
+  border-radius: 10px;
+}
+
+img {
+  width: 100%;
+  border-radius: 30px;
+}
+h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+  line-height: 30px;
+  max-height: 120px;
+}
+h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+h4 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+p {
+  text-align: left;
+  font-size: 0.8rem;
+  line-height: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+button {
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 0;
+  transform: translateY(-10px);
+  align-items: center;
+}
+
+.genre {
+  color: blue;
+}

@@ -1,0 +1,142 @@
+@font-face {
+  font-family: "Confortaa";
+  src: url(../assets/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "Raleway";
+  src: url(../assets/fonts/Raleway/Raleway-VariableFont_wght.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: #333;
+  font-family: "Confortaa";
+  font-size: 1rem;
+  color: #fff;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.head {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 20px auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 50px;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+ul li {
+  color: white;
+  text-decoration: none;
+  background: rgb(50, 143, 214);
+  display: block;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  text-align: center;
+  -webkit-transition: 250ms ease-in-out;
+  transition: 250ms ease-in-out;
+  max-width: 130px;
+}
+ul li:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
+.logo {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+  max-width: 1400px;
+  margin: 30px auto;
+  padding: 50px;
+}
+
+.card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  padding: 20px;
+  background: black;
+  border-radius: 10px;
+}
+
+img {
+  width: 100%;
+  border-radius: 30px;
+}
+
+h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+  line-height: 30px;
+  max-height: 120px;
+}
+
+h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+h4 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+p {
+  text-align: left;
+  font-size: 0.8rem;
+  line-height: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+button {
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 0;
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.genre {
+  color: blue;
+}/*# sourceMappingURL=index.css.map */
