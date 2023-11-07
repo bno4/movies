@@ -9,7 +9,7 @@ const Header = () => {
                 <li>Accueil</li></NavLink>
 
             <NavLink to="/favorites">
-                <li>Coups de coeur</li>
+                <li>Favoris</li>
                 </NavLink></ul>
 <div className="logo"><h1>CinéApp</h1></div>
         </div>

@@ -1,27 +1,29 @@
 .head {
+  background-color: #282c34;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  margin: 20px auto;
+  margin: 0px auto;
   align-items: center;
   padding: 20px 50px;
+  width: 100%;
 }
 
-ul {
+.navigation {
   display: grid;
   grid-template-columns: 50% 50%;
 
   li {
-    color: white;
+    color: black;
     text-decoration: none;
-    background: rgb(50, 143, 214);
+    background: rgb(180, 180, 180);
     display: block;
-    margin: 10px;
-    padding: 10px;
+    margin: 5px;
+    padding: 5px;
     border-radius: 5px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     text-align: center;
     transition: 250ms ease-in-out;
-    max-width: 130px;
+    max-width: 150px;
     &:hover {
       transform: scale(1.02);
     }
@@ -29,6 +31,7 @@ ul {
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-align: center;
+  color: salmon;
 }
