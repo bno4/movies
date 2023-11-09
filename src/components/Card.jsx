@@ -5,9 +5,17 @@
 const Card = ({ movie }) => {
   const date = new Date(movie.release_date);
   const genres = movie.genre_ids;
-  const obj = {
-    id:movie.id
+
+
+
+const selectedMovie = {
+  id:movie.id,
+  img:`https://image.tmdb.org/t/p/original/${movie.poster_path}`,
+  title:movie.title,
+  date:date,
+  vote_average: movie.votre_average
 };
+
 
   return (
     <div>
@@ -35,7 +43,11 @@ const Card = ({ movie }) => {
           </ul>
           <h3>Synopsis</h3>
           <p>{movie.overview}</p>
-          <button onClick={()=>localStorage.setItem(movie.id,({...obj}))}>Ajouter aux coups de coeur</button>
+          <button onClick={()=>{
+          let allMovies = JSON.parse(localStorage.getItem("list")) || []
+            allMovies.push(selectedMovie)
+           localStorage.setItem("list", JSON.stringify(allMovies))
+           }}>Ajouter aux favoris</button>
         </div>
       </div>
       {/* </Link> */}
