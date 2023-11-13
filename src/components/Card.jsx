@@ -1,20 +1,81 @@
 /* eslint-disable react/prop-types */
-
 // import { Link } from "react-router-dom";
 
-const Card = ({ movie }) => {
+const Card = ({movie}) => {
   const date = new Date(movie.release_date);
-  const genres = movie.genre_ids;
+  const genreFinder = () => {
+    let genreArray = [];
+    for (let i = 0; i < movie.genre_ids.length; i++) {
+      switch (movie.genre_ids[i]) {
+        case 28:
+          genreArray.push(`Action`);
+          break;
+        case 12:
+          genreArray.push(`Aventure`);
+          break;
+        case 16:
+          genreArray.push(`Animation`);
+          break;
+        case 35:
+          genreArray.push(`Comédie`);
+          break;
+        case 80:
+          genreArray.push(`Policier`);
+          break;
+        case 99:
+          genreArray.push(`Documentaire`);
+          break;
+        case 18:
+          genreArray.push(`Drame`);
+          break;
+        case 10751:
+          genreArray.push(`Famille`);
+          break;
+        case 14:
+          genreArray.push(`Fantasy`);
+          break;
+        case 36:
+          genreArray.push(`Histoire`);
+          break;
+        case 27:
+          genreArray.push(`Horreur`);
+          break;
+        case 10402:
+          genreArray.push(`Musique`);
+          break;
+        case 9648:
+          genreArray.push(`Mystère`);
+          break;
+        case 10749:
+          genreArray.push(`Romance`);
+          break;
+        case 878:
+          genreArray.push(`Science-fiction`);
+          break;
+        case 10770:
+          genreArray.push(`Téléfilm`);
+          break;
+        case 53:
+          genreArray.push(`Thriller`);
+          break;
+        case 10752:
+          genreArray.push(`Guerre`);
+          break;
+        case 37:
+          genreArray.push(`Western`);
+          break;
+        default:
+          break;
+      }
+    }
+    return genreArray.map((genre) => <li key={genre.id}>{genre}</li>);
+  };
 
-
-
-const selectedMovie = {
-  id:movie.id,
-  img:`https://image.tmdb.org/t/p/original/${movie.poster_path}`,
-  title:movie.title,
-  date:date,
-  vote_average: movie.votre_average
-};
+  const addStorage =() => {
+    let allMovies = JSON.parse(localStorage.getItem("list")) || [];
+    if (!allMovies.includes(movie.id)) {allMovies.push(movie.id)
+     localStorage.setItem("list", JSON.stringify(allMovies)); console.log("film ajouté aux favoris !")
+  }}
 
 
   return (
@@ -37,17 +98,14 @@ const selectedMovie = {
             <i className="fa-solid fa-star"></i>{" "}
           </h4>
           <ul className="genre">
-            {genres.map((genre, i) => (
-              <li key={i}>{genre}</li>
-            ))}
+          {movie.genre_ids
+          ? genreFinder()
+          : movie.genres.map((genre, index) => <li key={index}>{genre.name}</li>)}
           </ul>
           <h3>Synopsis</h3>
           <p>{movie.overview}</p>
-          <button onClick={()=>{
-          let allMovies = JSON.parse(localStorage.getItem("list")) || []
-            allMovies.push(selectedMovie)
-           localStorage.setItem("list", JSON.stringify(allMovies))
-           }}>Ajouter aux favoris</button>
+          {movie.genre_ids ? ( <button onClick={()=>{addStorage()}}>Ajouter aux favoris</button>) : (<button onClick={()=>{}}>Supprimer des favoris</button>) }
+         
         </div>
       </div>
       {/* </Link> */}

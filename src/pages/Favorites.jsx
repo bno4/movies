@@ -1,20 +1,31 @@
 
+
+import { useEffect, useState } from "react";
+import Card from "../components/Card";
 import Header from "../components/Header";
-
-
+import axios from "axios";
 
 const Favorites = () => {
+    
+const [listdata, setData]= useState([]);
 
+useEffect(()=> {
+    let allMovies = JSON.parse(localStorage.getItem("list")) || [];
+    console.log(allMovies);
+allMovies.map((film)=> {
+ axios.get(`https://api.themoviedb.org/3/movie/${film}?api_key=b7b3ec164d57a72e901bc1765d723836`).then((res)=> setData((data) => [...data, res.data]))
+}) 
+},[])
+
+console.log(listdata);
 
     return (
         <div>
             <Header/>
-      
-              
+            <ul className="cards-container">
+                {listdata.map((movie)=>  <Card key={movie.id} movie={movie}/>)}
 
-           
-            
-           
+            </ul>
         </div>
     );
 };
