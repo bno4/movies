@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+
 // import { Link } from "react-router-dom";
 
 const Card = ({movie}) => {
@@ -77,6 +78,9 @@ const Card = ({movie}) => {
      localStorage.setItem("list", JSON.stringify(allMovies)); console.log("film ajouté aux favoris !")
   }}
 
+  // const deleteStorage = () => {
+
+  // }
 
   return (
     <div>
@@ -104,7 +108,7 @@ const Card = ({movie}) => {
           </ul>
           <h3>Synopsis</h3>
           <p>{movie.overview}</p>
-          {movie.genre_ids ? ( <button onClick={()=>{addStorage()}}>Ajouter aux favoris</button>) : (<button onClick={()=>{}}>Supprimer des favoris</button>) }
+          {movie.genre_ids ? ( <button onClick={()=>{addStorage()}}>Ajouter aux favoris</button>) : (<button onClick={()=>{deleteStorage()}}>Supprimer</button>) }
          
         </div>
       </div>
