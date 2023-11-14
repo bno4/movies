@@ -17,7 +17,6 @@ body {
   background: #f2f2f2;
   font-family: "Confortaa";
   font-size: 1rem;
-  color: #fff;
 }
 
 ul {
@@ -41,8 +40,9 @@ a {
 }
 
 .navigation {
-  display: grid;
-  grid-template-columns: 50% 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 .navigation li {
   color: black;
@@ -73,9 +73,15 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 20px;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 30px auto;
   padding: 50px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .filter-container {
@@ -92,13 +98,67 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 30px;
+}
+
+.search {
+  background: rgb(255, 255, 255);
+  border-radius: 20px;
+  min-width: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 20px;
+  border: 2px solid rgb(255, 255, 255);
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+}
+.search:hover {
+  border: 2px solid salmon;
+}
+.search .fa-magnifying-glass {
+  color: #999;
+  margin-right: 10px;
+  font-size: 2rem;
+}
+.search input {
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+  font-family: "Raleway";
+}
+
+.sort-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 10px;
+}
+
+.btnSort {
+  color: #f2f2f2;
+  background-color: salmon;
+  border: 0;
+  padding: 10px;
+  cursor: pointer;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+  border-radius: 10px;
+  margin: 0 2px;
+}
+.btnSort:hover {
+  -webkit-filter: saturate(1.6);
+          filter: saturate(1.6);
 }
 
 .search {
   margin-bottom: 10px;
 }
 
-.card-container {
+.card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -115,12 +175,9 @@ a {
   -webkit-transition: 250ms ease-in;
   transition: 250ms ease-in;
   cursor: pointer;
-}
-.card-container:hover {
-  -webkit-transform: scale(1.03);
-          transform: scale(1.03);
-  -webkit-box-shadow: 3px 1px 10px 5px rgba(0, 0, 0, 0.3333333333);
-          box-shadow: 3px 1px 10px 5px rgba(0, 0, 0, 0.3333333333);
+  max-width: 450px;
+  height: 700px;
+  position: relative;
 }
 
 img {
@@ -130,13 +187,12 @@ img {
   -o-object-position: center;
      object-position: center;
   margin: 0 auto;
-  height: 300px;
+  height: 38%;
 }
 
 .text-container {
   padding: 20px;
   color: #222;
-  position: relative;
 }
 .text-container h2 {
   margin-top: 0px;
@@ -171,39 +227,54 @@ img {
   overflow: hidden;
   margin-bottom: 30px;
 }
-.text-container button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 0 auto;
-  bottom: 10px;
+
+.favBtn {
+  position: absolute;
+  text-align: center;
+  bottom: 20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   padding: 5px 10px;
   border-radius: 10px;
   border: 0;
   background-color: salmon;
-  color: whitesmoke;
+  color: rgb(255, 255, 255);
+  min-width: 170px;
+  cursor: pointer;
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+}
+.favBtn:hover {
+  -webkit-filter: saturate(1.9);
+          filter: saturate(1.9);
 }
 
 .genre {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  text-align: center;
+  color: rgb(255, 255, 255);
+  gap: 3px;
 }
 .genre li {
+  display: block;
   background: salmon;
-  padding: 5px 5px;
+  padding: 4px 1px;
   border-radius: 5px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 
 .fa-star {
-  color: yellow;
-  font-size: 0.8rem;
+  color: salmon;
+  font-size: 0.9rem;
+}
+
+h2 {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.fa-heart {
+  color: salmon;
 }/*# sourceMappingURL=index.css.map */

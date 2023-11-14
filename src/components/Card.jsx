@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 
+import { useState } from "react";
+
 // import { Link } from "react-router-dom";
 
 const Card = ({movie}) => {
@@ -69,7 +71,7 @@ const Card = ({movie}) => {
           break;
       }
     }
-    return genreArray.map((genre) => <li key={genre.id}>{genre}</li>);
+    return genreArray.map((genre) => <li key={genre}>{genre}</li>);
   };
 
   const addStorage =() => {
@@ -78,19 +80,28 @@ const Card = ({movie}) => {
      localStorage.setItem("list", JSON.stringify(allMovies)); console.log("film ajouté aux favoris !")
   }}
 
-  // const deleteStorage = () => {
+  const [isDeleted, setIsDeleted] = useState(false);
 
-  // }
+  const deleteStorage = () => {
+    let allMovies = JSON.parse(localStorage.getItem("list")) || [];
+    let newData = allMovies.filter((id)=> id != movie.id)
+    localStorage.setItem("list", JSON.stringify(newData))
+    setIsDeleted(true)
+  }
+  if (isDeleted){
+    return null;
+  }
 
   return (
     <div>
       {/* <Link to={`/favorites/${movie.id}`}> */}
-      <div className="card-container">
+      <div className="card">
+   
         <img
           src={
             movie.poster_path === null
               ? "img/poster.jpg"
-              : `https://image.tmdb.org/t/p/original/${movie.poster_path}`
+              : `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`
           }
           alt={movie.title}
         />
@@ -104,11 +115,11 @@ const Card = ({movie}) => {
           <ul className="genre">
           {movie.genre_ids
           ? genreFinder()
-          : movie.genres.map((genre, index) => <li key={index}>{genre.name}</li>)}
+          : movie.genres.map((genre) => <li key={genre.id}>{genre.name}</li>)}
           </ul>
           <h3>Synopsis</h3>
           <p>{movie.overview}</p>
-          {movie.genre_ids ? ( <button onClick={()=>{addStorage()}}>Ajouter aux favoris</button>) : (<button onClick={()=>{deleteStorage()}}>Supprimer</button>) }
+          {movie.genre_ids ? ( <button className="favBtn" onClick={()=>{addStorage()}}>Ajouter aux favoris <i className="fa-regular fa-heart"></i></button>) : (<button className="favBtn" onClick={()=>{deleteStorage()}}>Supprimer des favoris</button>) }
          
         </div>
       </div>

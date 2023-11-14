@@ -11,7 +11,7 @@ const Header = () => {
             <NavLink to="/favorites">
                 <li>Favoris</li>
                 </NavLink></ul>
-<div className="logo"><h1>CineMap</h1></div>
+<div className="logo"><h1>CineMap <i className="fa-solid fa-ticket"></i></h1></div>
         </div>
     );
 };

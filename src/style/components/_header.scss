@@ -9,8 +9,7 @@
 }
 
 .navigation {
-  display: grid;
-  grid-template-columns: 50% 50%;
+  display: flex;
 
   li {
     color: black;
@@ -24,6 +23,7 @@
     text-align: center;
     transition: 250ms ease-in-out;
     max-width: 150px;
+
     &:hover {
       transform: scale(1.02);
     }
