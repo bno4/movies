@@ -1,0 +1,12 @@
+.foot {
+  background-color: $color-4;
+  display: grid;
+  grid-template-columns: 1fr;
+  // margin: 0px auto;
+  align-items: center;
+  padding: 20px 50px;
+  width: 100%;
+  justify-content: space-around;
+  text-align: right;
+  color: $color-5;
+}

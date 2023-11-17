@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Card = ({movie}) => {
   const date = new Date(movie.release_date);
@@ -94,17 +94,18 @@ const Card = ({movie}) => {
 
   return (
     <div>
-      {/* <Link to={`/favorites/${movie.id}`}> */}
+     
       <div className="card">
-   
+      <Link to={`/moviepage/${movie.id}`}>
         <img
           src={
-            movie.poster_path === null
+            movie.backdrop_path === null
               ? "img/poster.jpg"
               : `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`
           }
           alt={movie.title}
         />
+        </Link>
         <div className="text-container">
           <h2>{movie.title}</h2>
           <p>Sortie : {date.toLocaleDateString("fr")} </p>
@@ -119,11 +120,12 @@ const Card = ({movie}) => {
           </ul>
           <h3>Synopsis</h3>
           <p>{movie.overview}</p>
-          {movie.genre_ids ? ( <button className="favBtn" onClick={()=>{addStorage()}}>Ajouter aux favoris <i className="fa-regular fa-heart"></i></button>) : (<button className="favBtn" onClick={()=>{deleteStorage()}}>Supprimer des favoris</button>) }
+          
+          {movie.genre_ids ? ( <button className="favBtn" onClick={()=>{addStorage()}}>Ajouter aux favoris <i className="fa-solid fa-heart"></i></button>) : (<button className="favBtn" onClick={()=>{deleteStorage()}}>Supprimer des favoris</button>) }
          
         </div>
       </div>
-      {/* </Link> */}
+     
     </div>
   );
 };

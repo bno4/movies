@@ -1,4 +1,5 @@
 import CineCards from "../components/CineCards";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 
@@ -7,6 +8,7 @@ const Home = () => {
     <div>
       <Header/>
 <CineCards/>
+<Footer/>
     </div>
   )
 };

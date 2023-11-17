@@ -1,12 +1,13 @@
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 30px auto;
   padding: 50px;
   justify-content: center;
   align-items: flex-start;
+  min-height: 100vh;
 }
 
 .filter-container {
@@ -38,6 +39,9 @@
     outline: 0;
     font-size: 1rem;
     font-family: $font-p;
+  }
+  @media screen and (max-width: 550px) {
+    min-width: 250px;
   }
 }
 

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import Header from "../components/Header";
 import axios from "axios";
+import Footer from "../components/Footer";
 
 const Favorites = () => {
     
@@ -23,7 +24,7 @@ console.log(listData);
     return (
         <div>
             <Header/>
-            <h2>Films favoris <i className="fa-solid fa-heart"></i></h2>
+            <h2>Films favoris<i className="fa-solid fa-heart"></i></h2>
             <ul className="cards-container">
                 {listData.length > 0 ?
                 (listData.map((movie)=> <Card key={movie.id} movie={movie}/>)):(
@@ -32,6 +33,7 @@ console.log(listData);
           
 
             </ul>
+            <Footer/>
         </div>
     );
 };

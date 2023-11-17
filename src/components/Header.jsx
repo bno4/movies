@@ -4,6 +4,9 @@ const Header = () => {
   
     return (
         <div className="head">
+            <div className="logo">
+            <NavLink to="/">
+                <h1><i className="fa-solid fa-ticket"></i> CineMap </h1></NavLink></div>
            <ul className="navigation">
             <NavLink to="/">
                 <li>Accueil</li></NavLink>
@@ -11,7 +14,7 @@ const Header = () => {
             <NavLink to="/favorites">
                 <li>Favoris</li>
                 </NavLink></ul>
-<div className="logo"><h1>CineMap <i className="fa-solid fa-ticket"></i></h1></div>
+
         </div>
     );
 };

@@ -17,14 +17,17 @@ $font-p: "Raleway";
   box-sizing: border-box;
 }
 
-$color-1: salmon;
+$color-1: #e93558;
 $color-2: #f2f2f2;
 $color-3: rgb(255, 255, 255);
+$color-4: #30333c;
+$color-5: #bbcbd8;
 
 body {
   background: $color-2;
   font-family: $font-h;
   font-size: 1rem;
+
   // color: #fff;
 }
 
