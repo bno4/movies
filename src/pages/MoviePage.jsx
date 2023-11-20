@@ -33,6 +33,12 @@ const MoviePage = () => {
   }, [id]);
   console.log(credit);
 
+  const toHoursAndMinutes = (totalMinutes) => {
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+    return `${hours} h ${minutes} mn`;
+  };
+
   const date = new Date(film.release_date);
   const pageTransition = {
     in: {
@@ -45,30 +51,20 @@ const MoviePage = () => {
     },
   };
 
-  // if (isLoading) {
-  //   return (
-  //     <div className="loader">
-  //       <h2>Loading...</h2>
-  //     </div>
-  //   );
-  // }
-
   return (
     <div>
       <Header />
 
       <div className="film-container">
         {isLoading ? (
-          <div className="loader">
-            <h2>Loading...</h2>
-          </div>
+          <div className="loader"></div>
         ) : (
           <motion.div
             initial="out"
             animate="in"
             exit="out"
             variants={pageTransition}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.9 }}
             className="head-container"
           >
             <img
@@ -103,6 +99,7 @@ const MoviePage = () => {
                 );
               })}
             </ul>
+            <p>Durée / {toHoursAndMinutes(film.runtime)}</p>
             <div>
               <h3>Avec</h3>
               <ul className="credits">
