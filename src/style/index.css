@@ -393,6 +393,22 @@ h2 .fa-solid {
   color: #bbcbd8;
 }
 
+.loader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #30333c;
+  color: black;
+  height: 100%;
+  opacity: 0;
+}
+
 .head-container {
   position: relative;
   width: 100%;
