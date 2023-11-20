@@ -7,12 +7,12 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
-      <Routes>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/favorites" element={<Favorites/>}/>
-      <Route path="/moviepage/:id" element={<MoviePage/>}/>
-        </Routes></BrowserRouter>
-      
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/moviepage/:id" element={<MoviePage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };
