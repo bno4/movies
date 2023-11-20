@@ -19,7 +19,7 @@ const MoviePage = () => {
         setTimeout(() => {
           setFilm(res.data);
           setIsLoading(false);
-        }, 200);
+        }, 0);
       });
   }, [id]);
   console.log(film);
@@ -41,7 +41,7 @@ const MoviePage = () => {
     },
     out: {
       opacity: 0,
-      x: 200,
+      x: 1400,
     },
   };
 
@@ -56,18 +56,19 @@ const MoviePage = () => {
   return (
     <div>
       <Header />
-      {isLoading ? (
-        <div className="loader">
-          <h2>Loading...</h2>
-        </div>
-      ) : (
-        <div className="film-container">
+
+      <div className="film-container">
+        {isLoading ? (
+          <div className="loader">
+            <h2>Loading...</h2>
+          </div>
+        ) : (
           <motion.div
             initial="out"
             animate="in"
             exit="out"
             variants={pageTransition}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 1 }}
             className="head-container"
           >
             <img
@@ -89,7 +90,9 @@ const MoviePage = () => {
               </ul>
             </div>
           </motion.div>
-          <div className="mentions-container">
+        )}
+        <div className="mentions">
+          <div className="mentions__container">
             <h3>Sortie officielle : {date.toLocaleDateString("fr")}</h3>
             <ul className="genres">
               {film.genres?.map((genre) => {
@@ -115,7 +118,7 @@ const MoviePage = () => {
             </div>
           </div>
         </div>
-      )}
+      </div>
       <Footer />
     </div>
   );
