@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const CineCards = () => {
   const [data, setData] = useState([]);
-  const [filter, setFilter] = useState("odyssée");
+  const [filter, setFilter] = useState("od");
 
   useEffect(() => {
     axios
@@ -36,17 +36,19 @@ const CineCards = () => {
         <form onSubmit={(e) => e.preventDefault()}>
           <div className="search">
             <i className="fa-solid fa-magnifying-glass"></i>
-          <input type="text"
-            placeholder="Entrez le titre d'un film"
-            onChange={(e) => setFilter(e.target.value)}
-          /></div>
+            <input
+              type="text"
+              placeholder="Entrez le titre d'un film"
+              onChange={(e) => setFilter(e.target.value)}
+            />
+          </div>
         </form>
         <div className="sort-container">
           <button className="btnSort" id="maxToMin" onClick={descendingEvent}>
-          <i className="fa-solid fa-arrow-up"></i> Top
+            <i className="fa-solid fa-arrow-up"></i> Top
           </button>
           <button className="btnSort" id="minToMax" onClick={ascendingEvent}>
-          <i className="fa-solid fa-arrow-down"></i> Flop
+            <i className="fa-solid fa-arrow-down"></i> Flop
           </button>
         </div>
       </div>
