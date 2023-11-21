@@ -19,7 +19,7 @@ const MoviePage = () => {
         setTimeout(() => {
           setFilm(res.data);
           setIsLoading(false);
-        }, 0);
+        }, 500);
       });
   }, [id]);
   console.log(film);
@@ -57,7 +57,9 @@ const MoviePage = () => {
 
       <div className="film-container">
         {isLoading ? (
-          <div className="loader"></div>
+          <div className="loader">
+            <h2>Loading...</h2>
+          </div>
         ) : (
           <motion.div
             initial="out"
@@ -76,12 +78,11 @@ const MoviePage = () => {
               alt={"Visuel de " + film.title}
             />
             <div className="title-director">
-              {" "}
               <h2>{film.title}</h2>
               <ul>
                 {credit.crew?.map((cred) => {
                   if (cred["job"] == "Director")
-                    return <li>{cred.original_name}</li>;
+                    return <li key={cred.id}>{cred.original_name}</li>;
                 })}
               </ul>
             </div>

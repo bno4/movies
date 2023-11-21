@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { Link } from "react-router-dom";
 
-const Card = ({movie}) => {
+const Card = ({ movie }) => {
   const date = new Date(movie.release_date);
   const genreFinder = () => {
     let genreArray = [];
@@ -74,37 +74,39 @@ const Card = ({movie}) => {
     return genreArray.map((genre) => <li key={genre}>{genre}</li>);
   };
 
-  const addStorage =() => {
+  const addStorage = () => {
     let allMovies = JSON.parse(localStorage.getItem("list")) || [];
-    if (!allMovies.includes(movie.id)) {allMovies.push(movie.id)
-     localStorage.setItem("list", JSON.stringify(allMovies)); console.log("film ajouté aux favoris !")
-  }}
+    if (!allMovies.includes(movie.id)) {
+      allMovies.push(movie.id);
+      localStorage.setItem("list", JSON.stringify(allMovies));
+      console.log("film ajouté aux favoris !");
+    }
+  };
 
   const [isDeleted, setIsDeleted] = useState(false);
 
   const deleteStorage = () => {
     let allMovies = JSON.parse(localStorage.getItem("list")) || [];
-    let newData = allMovies.filter((id)=> id != movie.id)
-    localStorage.setItem("list", JSON.stringify(newData))
-    setIsDeleted(true)
-  }
-  if (isDeleted){
+    let newData = allMovies.filter((id) => id != movie.id);
+    localStorage.setItem("list", JSON.stringify(newData));
+    setIsDeleted(true);
+  };
+  if (isDeleted) {
     return null;
   }
 
   return (
     <div>
-     
       <div className="card">
-      <Link to={`/moviepage/${movie.id}`}>
-        <img
-          src={
-            movie.backdrop_path === null
-              ? "img/poster.jpg"
-              : `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`
-          }
-          alt={movie.title}
-        />
+        <Link to={`/moviepage/${movie.id}`}>
+          <img
+            src={
+              movie.backdrop_path === null
+                ? "img/poster.jpg"
+                : `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`
+            }
+            alt={movie.title}
+          />
         </Link>
         <div className="text-container">
           <h2>{movie.title}</h2>
@@ -114,18 +116,36 @@ const Card = ({movie}) => {
             <i className="fa-solid fa-star"></i>{" "}
           </h4>
           <ul className="genre">
-          {movie.genre_ids
-          ? genreFinder()
-          : movie.genres.map((genre) => <li key={genre.id}>{genre.name}</li>)}
+            {movie.genre_ids
+              ? genreFinder()
+              : movie.genres.map((genre) => (
+                  <li key={genre.id}>{genre.name}</li>
+                ))}
           </ul>
           <h3>Synopsis</h3>
           <p>{movie.overview}</p>
-          
-          {movie.genre_ids ? ( <button className="favBtn" onClick={()=>{addStorage()}}>Ajouter aux favoris <i className="fa-solid fa-heart"></i></button>) : (<button className="favBtn" onClick={()=>{deleteStorage()}}>Supprimer des favoris</button>) }
-         
+
+          {movie.genre_ids ? (
+            <button
+              className="favBtn"
+              onClick={() => {
+                addStorage();
+              }}
+            >
+              Ajouter aux favoris <i className="fa-solid fa-heart"></i>
+            </button>
+          ) : (
+            <button
+              className="favBtn"
+              onClick={() => {
+                deleteStorage();
+              }}
+            >
+              Supprimer des favoris
+            </button>
+          )}
         </div>
       </div>
-     
     </div>
   );
 };

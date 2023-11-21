@@ -35,12 +35,14 @@ const CineCards = () => {
       <div className="filter-container">
         <form onSubmit={(e) => e.preventDefault()}>
           <div className="search">
-            <i className="fa-solid fa-magnifying-glass"></i>
             <input
               type="text"
               placeholder="Entrez le titre d'un film"
               onChange={(e) => setFilter(e.target.value)}
             />
+            <button type="submit" className="submit">
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </button>
           </div>
         </form>
         <div className="sort-container">
