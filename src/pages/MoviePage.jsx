@@ -19,7 +19,7 @@ const MoviePage = () => {
         setTimeout(() => {
           setFilm(res.data);
           setIsLoading(false);
-        }, 500);
+        }, 0);
       });
   }, [id]);
   console.log(film);
