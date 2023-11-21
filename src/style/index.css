@@ -435,6 +435,7 @@ h2 .fa-solid {
   position: relative;
   width: 100%;
   height: 80vh;
+  overflow: hidden;
 }
 .head-container img {
   -o-object-fit: cover;
@@ -483,9 +484,6 @@ h2 .fa-solid {
   .head-container .title-director h2 {
     font-size: 1.5rem;
   }
-}
-.head-container .title-director ul {
-  margin-bottom: 20px;
 }
 .head-container .title-director ul li {
   color: #e93558;
