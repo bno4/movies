@@ -1,9 +1,7 @@
 import { useParams } from "react-router";
-// import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
-// import Footer from "../components/Footer";
 
 const MoviePage = () => {
   const { id } = useParams();
@@ -53,8 +51,6 @@ const MoviePage = () => {
 
   return (
     <div>
-      {/* <Header /> */}
-
       <div className="film-container">
         {isLoading ? (
           <div className="loader">
@@ -66,7 +62,7 @@ const MoviePage = () => {
             animate="in"
             exit="out"
             variants={pageTransition}
-            transition={{ duration: 0.9 }}
+            transition={{ duration: 0.7 }}
             className="head-container"
           >
             <img
@@ -117,7 +113,6 @@ const MoviePage = () => {
           </div>
         </div>
       </div>
-      {/* <Footer /> */}
     </div>
   );
 };

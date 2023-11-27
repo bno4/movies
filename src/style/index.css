@@ -206,14 +206,14 @@ a {
 .search:hover {
   border: 2px solid #e93558;
 }
-.search .fa-magnifying-glass {
+.search .fa-arrow-right {
   color: #e93558;
   margin-right: 10px;
   font-size: 2rem;
   -webkit-transition: 200ms ease-in-out;
   transition: 200ms ease-in-out;
 }
-.search .fa-magnifying-glass:hover {
+.search .fa-arrow-right:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }

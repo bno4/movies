@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
-// import Header from "../components/Header";
 import axios from "axios";
-// import Footer from "../components/Footer";
 
 const Favorites = () => {
   const [listData, setListData] = useState([]);
@@ -23,7 +21,6 @@ const Favorites = () => {
 
   return (
     <div>
-      {/* <Header/> */}
       <h2>
         Films favoris<i className="fa-solid fa-heart"></i>
       </h2>
@@ -34,7 +31,6 @@ const Favorites = () => {
           <h2>Aucun film favori pour le moment </h2>
         )}
       </ul>
-      {/* <Footer/> */}
     </div>
   );
 };
