@@ -286,6 +286,11 @@ a {
   border-radius: 7px;
 }
 
+a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
 img {
   width: 100%;
   -o-object-fit: cover;

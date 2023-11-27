@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Card = ({ movie }) => {
   const date = new Date(movie.release_date);
@@ -132,7 +132,9 @@ const Card = ({ movie }) => {
                 addStorage();
               }}
             >
-              Ajouter aux favoris <i className="fa-solid fa-heart"></i>
+              <NavLink to="/favorites">
+                Ajouter aux favoris <i className="fa-solid fa-heart"></i>
+              </NavLink>
             </button>
           ) : (
             <button
