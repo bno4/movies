@@ -62,7 +62,7 @@ const MoviePage = () => {
             animate="in"
             exit="out"
             variants={pageTransition}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
             className="head-container"
           >
             <img
