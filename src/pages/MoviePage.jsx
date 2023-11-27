@@ -1,9 +1,9 @@
 import { useParams } from "react-router";
-import Header from "../components/Header";
+// import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 const MoviePage = () => {
   const { id } = useParams();
@@ -53,7 +53,7 @@ const MoviePage = () => {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
 
       <div className="film-container">
         {isLoading ? (
@@ -117,7 +117,7 @@ const MoviePage = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
